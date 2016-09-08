@@ -16,11 +16,14 @@ public class Tidrapport {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        
-        //testar detta
-        // det funkade nu
-        
-        //ta bort allt 
+        int min = 31;
+        int x = 6;
+        Tid rg = new Tid();
+            int tid = rg.min(min, x);
+    
+            System.out.println(tid);
+            
     }
+    
     
 }
