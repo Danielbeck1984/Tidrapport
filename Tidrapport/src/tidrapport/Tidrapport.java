@@ -18,6 +18,7 @@ public class Tidrapport {
         // TODO code application logic here
         
         //testar detta
+        // det funkade nu
     }
     
 }
