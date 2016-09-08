@@ -20,7 +20,7 @@ public class Tidrapport {
         //testar detta
         // det funkade nu
         
-        //ttt
+        //ta bort allt 
     }
     
 }
