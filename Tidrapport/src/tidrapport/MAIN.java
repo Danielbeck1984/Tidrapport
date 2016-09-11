@@ -9,14 +9,14 @@ package tidrapport;
  *
  * @author daniel
  */
-public class Tidrapport {
+public class MAIN {
 
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int min = 31;
+        int min = 30;
         int x = 6;
         Tid rg = new Tid();
             int tid = rg.min(min, x);
