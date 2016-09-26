@@ -5,9 +5,11 @@
  */
 package tidrapport;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author danie
+ * @author daniel
  */
 public class Tid {
     
@@ -32,15 +34,29 @@ public class Tid {
         return jobbTid;
     }
     
-    public static int min(int x, int y){
-        // kollar om det är så att "x" som är minuter är någon av domma
+    public static int startMin(int x, int y){
+        // int "x" är för minuter som man har jobbat.
+        //int "y" är för tids tilllägg 
         
-        // denna måste göras om & förbättras så den går att ändra med "y" variaben mer 
-        if (x == 6 || x == 12 || x == 18 || x == 24 || x == 30 || x == 36 ||
-                x == 42 || x == 48|| x == 54){
+        // skapar ett objekt för att använda array för att se hur om värdena
+        // stämmer
+        Tid t = new Tid();
+        ArrayList<Integer> arrlist = new ArrayList<Integer>(12);
+        
+        // Skapar array listan & får dom vädena som y går på 60 min
+        arrlist = t.arr(y);
+        
+        // loopa igenom array o ser om någon av värdena i den är likamed 
+        // "x"
+        for (Integer num : arrlist){
             
-            return x;
+            //om värdet finns så retunerar dett värdet
+            if (num == x){
+                
+                return x;
+            }
         }
+
         // y ska vara en variabel som man variera beroende på hur mycket övertid
         // till lägg i mitt fall så har "y" värdet "6"
         // 60 är antal minuter det är på en timma
@@ -48,47 +64,74 @@ public class Tid {
         
         x =  (x / y);
         System.out.println(x);
+        x = x * y; 
         
-        // "a" ska vara noll om man vill lägga till +6 i mitt fall
-        // "a" ska vara 60 om man vill dra bort -6 i mitt fall
-        
-        int a = 60;
-        for (int i = 0; x > i || x == i ; ++i)
-            // ska vara plus om man vill lägga till +6 
-            // ska vara minus om man vill dra bort -6
-            a = a - 6;
-        
-                   
-        return a;
+           
+        return x;
         
     }
-}
-
-/*
-public static int Tid(int x, int y){
-        // om 
-        if (x == 6 || x == 12 || x == 18 || x == 24 || x == 30 || x == 36 ||
-                x == 42 || x == 48|| x == 54){
+    
+    public static int slutMin(int x, int y){
+        // int "x" är för minuter som man har jobbat.
+        //int "y" är för tids tilllägg 
+        
+        // skapar ett objekt för att använda array för att se hur om värdena
+        // stämmer
+        Tid t = new Tid();
+        ArrayList<Integer> arrlist = new ArrayList<Integer>(12);
+        
+        // Skapar array listan & får dom vädena som y går på 60 min
+        arrlist = t.arr(y);
+        
+        // loopa igenom array o ser om någon av värdena i den är likamed 
+        // "x"
+        for (Integer num : arrlist){
             
-            return x;
+            //om värdet finns så retunerar dett värdet
+            if (num == x){
+                
+                return x;
+            }
         }
+
         // y ska vara en variabel som man variera beroende på hur mycket övertid
         // till lägg i mitt fall så har "y" värdet "6"
         // 60 är antal minuter det är på en timma
-        int k = 60 / y;
         
-        x = x / y;
-                
-        int j = 1;
-        int a = 0;
-        for (int i = 0; x > i || x == i ; ++i)
-            a = a + 6;
         
-        if (a >=60){
-           return j;              
-           }
-            
-        return a;
+        x = 1 + (x / y);
+        System.out.println(x);
+        
+        x = x * y; 
+        
+        
+           
+        return x;
         
     }
-*/
+    
+    public ArrayList<Integer> arr(int y){
+        
+        // en array som får sinna värden genom att "y" delas med 60min
+        // & sen ger väden till arrayn
+        int x = 0, min = 60, total = 0;
+    
+        ArrayList<Integer> arrlist = new ArrayList<Integer>(12);
+        
+        // dela 60 min med 6 = 10 värden på "total"
+        total = min / y;
+        
+        // loopa igenom for loopen så man får ut väden till array
+        for (int i = 0; i <total; i++){
+            x = x + y;
+            arrlist.add(x);
+        }
+        
+        return (arrlist);
+    }
+
+
+    
+
+
+}

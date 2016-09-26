@@ -16,10 +16,10 @@ public class MAIN {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        int min = 30;
+        int min = 49;
         int x = 6;
         Tid rg = new Tid();
-            int tid = rg.min(min, x);
+            int tid = rg.slutMin(min, x);
     
             System.out.println(tid);
             
